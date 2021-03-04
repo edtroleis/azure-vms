@@ -1,7 +1,5 @@
 # Create Azure stack
 - virtual machine
-- sql server database
-- storage account
 
 # Set environment
 
@@ -36,5 +34,4 @@ terraform init -backend-config="storage_account_name=<YourAzureStorageAccountNam
 terraform plan -out out.plan
 
 terraform apply out.plan
-*** There will be an error, then from Azure control painel delete resource group "azure-k8stest" and execute "terraform apply out.plan" again.
 ```

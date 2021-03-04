@@ -28,6 +28,19 @@ resource "azurerm_network_interface" "network-interface" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = element(azurerm_public_ip.example_public_ip.*.id, count.index)
+  }
+}
+
+# try connect
+resource "azurerm_public_ip" "example_public_ip" {
+  count               = var.vm_number
+  name                = "vNet-${format("%02d", count.index)}-PublicIP"
+  location            = azurerm_resource_group.resource-group.location
+  resource_group_name = azurerm_resource_group.resource-group.name
+  allocation_method   = "Static"
+  tags = {
+    environment = "Test"
   }
 }
 

@@ -3,9 +3,9 @@ location            = "East US"
 resource_group_name = "rg-vms"
 
 # Virtual machine
-vm_number = 1
+vm_number = 2
 
 # Tags
 owner       = "Troleis"
-project     = "azure-sqlserver"
+project     = "azure-vms"
 environment = "Development"
